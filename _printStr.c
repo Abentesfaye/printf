@@ -4,13 +4,15 @@
  * @str: string to be print
  * Return: Nothing
  */
-void _printStr(char *str)
+int _printStr(char *str)
 {
-	int i = 0;
+    int len = 0;
 
-	while (str[i])
-	{
-		_printChar(str[i]);
-		i++;
-	}
+    while (*str)
+    {
+        _printChar(*str++);
+        len++;
+    }
+
+    return (len);
 }
