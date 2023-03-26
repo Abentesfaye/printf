@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					{
-						_printChar(va_arg(args, char));
+						_printChar(va_arg(args, int));
 						break;
 					}
 				case 's':
@@ -46,7 +46,8 @@ int _printf(const char *format, ...)
 			_printChar(*format);
 		}
 		format++;
-		counter++
+		counter++;
 	}
-	va_end(args)
-		return (counter);
+	va_end(args);
+	return (counter);
+}
