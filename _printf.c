@@ -24,6 +24,16 @@ int _printf(const char *format, ...)
 						_printChar(va_arg(args, char));
 						break;
 					}
+				case 's':
+					{
+						_printStr(va_arg(args, char *));
+						break;
+					}
+				case '%':
+					{
+						_printChar('%');
+						break;
+					}
 				default:
 					{
 						_printChar(*format);
