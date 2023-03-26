@@ -2,6 +2,7 @@
 /**
  *_printf - function that work like a printf function
  *@format: the format that pass to the function
+ *Return: length of format
  */
 
 int _printf(const char *format, ...)
@@ -18,6 +19,11 @@ int _printf(const char *format, ...)
 
 			switch (*format)
 			{
+				case 'c':
+					{
+						_printChar(va_arg(args, char));
+						break;
+					}
 				default:
 					{
 						_printChar(*format);
@@ -33,4 +39,4 @@ int _printf(const char *format, ...)
 		counter++
 	}
 	va_end(args)
-		return counter;
+		return (counter);
