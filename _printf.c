@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
                 case '%':
                      {
                             _printChar('%');
+                            counter++;
                             break;
                     }
                 default:
