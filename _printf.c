@@ -42,7 +42,6 @@ int _printf(const char *format, ...)
                     }
                 default:
                     {
-                        _printChar(*format);
                         counter++;
                         break;
                     }
