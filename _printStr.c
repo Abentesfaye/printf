@@ -10,7 +10,7 @@ int _printStr(char *str)
 
     while (*str)
     {
-        _printChar(*str++);
+        _printChar(str++);
         len++;
     }
 
