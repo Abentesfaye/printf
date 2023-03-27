@@ -5,7 +5,7 @@
  *@c: input parameter
  *Return: one character in stdout
  */
-int _printChar(char *c)
+int _printChar(char c)
 {
 	return (write(1, &c, 1));
 }
