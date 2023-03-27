@@ -6,13 +6,13 @@
  */
 int _printStr(char *str)
 {
-    int i = 0;
+    int len = 0;
 
-    while (str[i])
+    while (*str)
     {
-        _printChar(str);
-        i++;
+        _printChar(*str++);
+        len++;
     }
 
-    return (i);
+    return (len);
 }
