@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	char *str
+	char *str;
     int counter = 0;
     va_list args;
 
@@ -33,6 +33,11 @@ int _printf(const char *format, ...)
                         str = va_arg(args, char *);
                         counter += _printStr(str);
                         break;
+                    }
+                case '%':
+                     {
+                            _printChar('%');
+                            break;
                     }
                 default:
                     {
