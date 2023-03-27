@@ -40,6 +40,16 @@ int _printf(const char *format, ...)
                             counter++;
                             break;
                     }
+                case 'i':
+                {
+                    _printInt(va_arg(args, int));
+                    break;
+                }
+                case 'd':
+                {
+                    _printInt(va_arg(args, int));
+                    break;
+            
                 default:
                     {
                         _printChar(*format);
