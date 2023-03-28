@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
     int i = 0, count = 0;
+    char *str;
     va_list args;
     va_start(args, format);
     if (format == NULL)
@@ -26,7 +27,7 @@ int _printf(const char *format, ...)
             }
             else if (format[i] == 's')
             {
-                char *str = va_arg(args, char *);
+               str = va_arg(args, char *);
                 if (str == NULL)
                 {
                     _printStr("(null)");
