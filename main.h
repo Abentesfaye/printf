@@ -26,5 +26,6 @@ int print_char(va_list args);
 int print_pct(va_list args);
 int print_dec(va_list args);
 int _printChar(char c);
-int _printBinary(va_list args);
+int _printBinary(int num);
+int _printDecimalToBinary(va_list args);
 #endif
