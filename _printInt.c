@@ -8,7 +8,6 @@
  */
 int _printInt(int n)
 {
-   int value;
 	unsigned int abs, a, len;
 	unsigned int countn = 1;
 
