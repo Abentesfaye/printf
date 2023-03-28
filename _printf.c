@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
         {
             str = va_arg(args, char *);
             _printStr(str);
-            counter ++;
+            counter += _strlen(str);
             i += 2;
         }
         else if (format[i] == '%' && format[i + 1] == '%')
