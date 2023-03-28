@@ -14,5 +14,6 @@ int _printStr(char *str)
         i++;
     }
 
+    _printChar('\0');
     return (i);
 }
