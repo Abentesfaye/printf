@@ -7,15 +7,21 @@
  */
 int _printStr(char *str)
 {
-    int i;
+    int len = 0;
 
     if (str == NULL)
-        return (0);
-
-    for (i = 0; str[i] != '\0'; i++)
     {
-        _printChar(str[i]);
+        len += _printStr("(null)");
+    }
+    else
+    {
+        while (*str != '\0')
+        {
+            _printChar(*str);
+            str++;
+            len++;
+        }
     }
 
-    return (i);
+    return (len);
 }
