@@ -14,15 +14,14 @@ int _printInt(int n)
 
 	len = 0;
 
-	value = va_arg(args, int);
-
-	if (value < 0)
+	
+	if (n < 0)
 	{
-		len = len + _putchar('-');
-		abs = value * -1;
+		len = len + _printChar('-');
+		abs = n * -1;
 	}
 	else
-		abs = value;
+		abs = n;
 
 	a = abs;
 	while (a > 9)
@@ -32,7 +31,7 @@ int _printInt(int n)
 	}
 	while (countn >= 1)
 	{
-		len = len + _putchar(((abs / countn) % 10) + '0');
+		len = len + _printChar(((abs / countn) % 10) + '0');
 		countn = countn / 10;
 	}
 	return (len);
