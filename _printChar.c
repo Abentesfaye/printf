@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "main.h"
 /**
  * _printChar - Write a character to stdout
  * @c: The character to write

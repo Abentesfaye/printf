@@ -1,26 +1,28 @@
 #include "main.h"
-
 /**
- * _printInt - print an integer recursively
- * @n: the integer to print
+ * print_dec - prints decimal
+ * @args: the argument decimal
  *
- * Return: the number of characters printed
+ * Return: counter
  */
-int _printInt(int n)
+
+int print_dec(va_list args)
 {
+	int value;
 	unsigned int abs, a, len;
 	unsigned int countn = 1;
 
 	len = 0;
 
-	
-	if (n < 0)
+	value = va_arg(args, int);
+
+	if (value < 0)
 	{
 		len = len + _printChar('-');
-		abs = n * -1;
+		abs = value * -1;
 	}
 	else
-		abs = n;
+		abs = value;
 
 	a = abs;
 	while (a > 9)
