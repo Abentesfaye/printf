@@ -6,67 +6,33 @@
  *
  * Return: number of characters printed
  */
-int _printf(const char *format, ...)
-{
-	char *str;
+int _printf(const char *format, ...) 
+{   
+    int i=0;
     int counter = 0;
     va_list args;
-
     va_start(args, format);
+   
+   while(format[i]){
 
-    while (*format)
-    {
-        if (*format == '%')
+        if(format[i]== '%' && format[i+1]== 'c')
         {
-            format++;
-
-            switch (*format)
-            {
-                case 'c':
-                    {
-                      _printChar(va_arg(args, int));
-                        counter++;
-                        break;
-                    }
-                case 's':
-                    {
-                        str = va_arg(args, char *);
-                        counter += _printStr(str);
-                        break;
-                    }
-                case '%':
-                     {
-                            _printChar('%');
-                            counter++;
-                            break;
-                    }
-                case 'i':
-                {
-                    _printInt(va_arg(args, int));
-                    break;
-                }
-                case 'd':
-                {
-                    _printInt(va_arg(args, int));
-                    break;
-            
-                default:
-                    {
-                        _printChar(*format);
-                        break;
-                    }
-            }
-        }
-        else
-        {
-            _printChar(*format);
+            _printChar(va_arg(args, int));
             counter++;
+            i +=2;
+        }
+        else if (format[i] == '%' && format[i +1] == 's')
+        {
+            _printStr(va_arg(args, char *));
+              counter++;
+             i +=2;
         }
 
-        format++;
-    }
-
-    va_end(args);
-
-    return (counter);
+        else{
+            _printChar(format[i]);
+            counter++;
+            i++;
+        }
+   }
+    return counter;
 }
