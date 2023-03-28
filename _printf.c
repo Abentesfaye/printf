@@ -1,55 +1,52 @@
 #include "main.h"
-/**
- *_printf - function that work like a printf function
- *@format: the format that pass to the function
- *Return: length of format
- */
 
+/**
+ * _printf - custom printf function that handles only %c, %s, and %% specifiers
+ * @format: format string to print
+ * @...: variable arguments list
+ *
+ * Return: number of characters printed
+ */
 int _printf(const char *format, ...)
 {
-	int counter = 0;
+	int i = 0, counter = 0;
+	int (*f)(va_list);
 	va_list args;
 
 	va_start(args, format);
-	if (format == NULL)
-		return -1;
-	while (*format)
+	if (format == NULL || !format[i + 1])
+		return (-1);
+	while (format[i])
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-
-			switch (*format)
+			if (format[i + 1])
 			{
-				case 'c':
-					{
-						_printChar(va_arg(args, int));
-						break;
-					}
-				case 's':
-					{
-						_printStr(va_arg(args, char *));
-						break;
-					}
-				case '%':
-					{
-						_printChar('%');
-						break;
-					}
-				default:
-					{
-						_printChar(*format);
-						break;
-					}
+				if (format[i + 1] != 'c' && format[i + 1] != 's'
+				&& format[i + 1] != '%' && format[i + 1] != 'd'
+				&& format[i + 1] != 'i' && format[i + 1] != 'b')
+				{
+					counter += _printChar(format[i]);
+					counter += _printChar(format[i + 1]);
+					i++;
+				}
+				else
+				{
+					f = get_func(&format[i + 1]);
+					counter += f(args);
+					i++;
+				}
 			}
 		}
 		else
 		{
-			_printChar(*format);
+			_printChar(format[i]);
+			counter++;
 		}
-		format++;
-		counter++;
+		i++;
 	}
 	va_end(args);
 	return (counter);
 }
+
+
