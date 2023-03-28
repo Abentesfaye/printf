@@ -48,6 +48,18 @@ int _printf(const char *format, ...)
             counter++;
             i += 2;
         }
+        else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+        {
+            int num = va_arg(args, int);
+            if (num < 0)
+            {
+                _printChar('-');
+                counter++;
+                num = -num;
+            }
+            counter += _printInt(num);
+            i += 2;
+        }
         else
         {
             _printChar(format[i]);
