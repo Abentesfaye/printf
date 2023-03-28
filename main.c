@@ -1,34 +1,28 @@
-#include <stdio.h>
-#include "main.h"
+
+ #include "main.h"
+#include <limits.h>
+
 int main(void)
 {
-    char *str = "Hello, world!";
-    int len1, len2;
-int a = 42;
-    int b = -123;
-    int c = 0;
-    len1 = _printf("Character: %c\n", 'H');
-    len2 = printf("Character: %c\n", 'H');
-    printf("len1: %d\n", len1);
-    printf("len2: %d\n", len2);
+    int ret;
 
-    len1 = _printf("String: %s\n", str);
-    len2 = printf("String: %s\n", str);
-    printf("len1: %d\n", len1);
-    printf("len2: %d\n", len2);
+    ret = _printf("Hello, world!\n");
+    _printf("Return value: %d\n", ret);
+    _printf("Printing a single character: %c\n", 'A');
+    _printf("Printing a string: %s\n", "This is a test");
+    _printf("Printing a number: %d\n", 12345);
 
-    len1 = _printf("Null string: %s\n", NULL);
-    printf("len1: %d\n", len1);
-    printf("len2: %d\n", len2);
-
-    len1 = _printf("Percent sign: %%\n");
-    len2 = printf("Percent sign: %%\n");
-    printf("len1: %d\n", len1);
-    printf("len2: %d\n", len2);
- _printf("Unknown:[%r]\n");
-   _printf("a = %d\n", a);
-    _printf("b = %i\n", b);
-    _printf("c = %d\n", c);
+    
+    _printf("Printing a NULL string: %s\n", NULL);
+    _printf("Printing an empty string: %s\n", "");
+    _printf("Printing a string with special characters: %s\n", "This string contains a newline\nand a tab character\t");
+    _printf("Printing an unsupported format specifier: %p\n", NULL);
+    _printf("Printing a number larger than INT_MAX: %d\n", INT_MAX);
+    _printf("Printing a number smaller than INT_MIN: %d\n", INT_MIN);
+    _printf("Printing a non-printable character: %c\n", '\x07');
+    _printf("Printing a very long string: %s\n", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet in urna ultrices accumsan. Donec sed odio eros.");
+    _printf("Printing a number with a large number of digits: %d\n", 1234567890);
 
     return (0);
 }
+

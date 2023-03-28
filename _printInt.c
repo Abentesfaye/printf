@@ -8,9 +8,32 @@
  */
 int _printInt(int n)
 {
-    int count = 0;
-    if (n / 10)
-        count += _printInt(n / 10);
-    _printChar(n % 10 + '0');
-    return (count + 1);
+   int value;
+	unsigned int abs, a, len;
+	unsigned int countn = 1;
+
+	len = 0;
+
+	value = va_arg(args, int);
+
+	if (value < 0)
+	{
+		len = len + _putchar('-');
+		abs = value * -1;
+	}
+	else
+		abs = value;
+
+	a = abs;
+	while (a > 9)
+	{
+		a = a / 10;
+		countn = countn * 10;
+	}
+	while (countn >= 1)
+	{
+		len = len + _putchar(((abs / countn) % 10) + '0');
+		countn = countn / 10;
+	}
+	return (len);
 }
