@@ -1,6 +1,7 @@
 #include "main.h"
+
 /**
- * _printf - custom printf function that handles only %c and %s specifiers
+ * _printf - custom printf function that handles only %c, %s, and %% specifiers
  * @format: format string to print
  * @...: variable arguments list
  *
@@ -8,6 +9,8 @@
  */
 int _printf(const char *format, ...) 
 {   
+    char c;
+    char *str;
     int i = 0;
     int counter = 0;
     va_list args;
@@ -17,34 +20,37 @@ int _printf(const char *format, ...)
     {
         return -1;
     }
-   while(format[i] != NULL)
-   {
-        if(format[i] == '%' && format[i+1] == 'c')
+    
+    while (format[i])
+    {
+        if (format[i] == '%' && format[i+1] == 'c')
         {
-            _printChar(va_arg(args, int));
+            c = va_arg(args, int);
+            _printChar(c);
             counter++;
             i += 2;
         }
-        else if (format[i] == '%' && format[i +1] == 's')
+        else if (format[i] == '%' && format[i + 1] == 's')
         {
-            _printStr(va_arg(args, char *));
-            counter++;
-             i += 2;
+            str = va_arg(args, char *);
+            _printStr(str);
+            counter ++;
+            i += 2;
         }
-
         else if (format[i] == '%' && format[i + 1] == '%')
         {
             _printChar('%');
-             counter++;
-             i += 2;
+            counter++;
+            i += 2;
         }
-
-        else{
+        else
+        {
             _printChar(format[i]);
             counter++;
             i++;
         }
-   }
-   
+    }
+    va_end(args);
+    
     return counter;
 }
