@@ -9,17 +9,18 @@
  */
 int _printDecimalToBinary(va_list args)
 {
-    int num = va_arg(args, int);
-    int length = 0;
+	int num = va_arg(args, int);
+	int length = 0;
 
-    if (num == 0) {
-        _printChar('0');
-        length = 1;
-    } else {
-        length = _printBinary(num);
-    }
-
-    return (length);
+	if (num == 0)
+	{
+		_printChar('0');
+		length = 1;
+	} else
+	{
+		length = _printBinary(num);
+	}
+	return (length);
 }
 
 /**
@@ -31,13 +32,13 @@ int _printDecimalToBinary(va_list args)
  */
 int _printBinary(int num)
 {
-    int length = 0;
+	int length = 0;
 
-    if (num > 1) {
-        length = _printBinary(num >> 1);
-    }
-    _printChar((num & 1) + '0');
-    length++;
-
-    return (length);
+	if (num > 1)
+	{
+		length = _printBinary(num >> 1);
+	}
+	_printChar((num & 1) + '0');
+	length++;
+	return (length);
 }
