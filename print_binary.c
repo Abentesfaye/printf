@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printDecimalToBinary - Converts a decimal number to binary and prints it.
  *
@@ -13,10 +14,11 @@ int _printDecimalToBinary(va_list args)
 
     if (num == 0) {
         _printChar('0');
-        return (1);
+        length = 1;
+    } else {
+        length = _printBinary(num);
     }
 
-    length = _printBinary(num);
     return (length);
 }
 
