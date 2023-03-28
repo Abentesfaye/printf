@@ -1,26 +1,21 @@
 #include "main.h"
 /**
- * _printStr - prints a string to stdout
- * @str: the string to print
+ * _printStr - Write a string to stdout
+ * @str: The string to write
  *
- * Return: the number of characters printed
+ * Return: The number of characters written
  */
 int _printStr(char *str)
 {
-    int len = 0;
+    int i;
+
     if (str == NULL)
+        return (0);
+
+    for (i = 0; str[i] != '\0'; i++)
     {
-        return _printStr("(null)");
+        _printChar(str[i]);
     }
-    if (str[0] == '\0')
-    {
-        _printChar('\0');
-        return (1);
-    }
-    while (str[len] != '\0')
-    {
-        _printChar(str[len]);
-        len++;
-    }
-    return (len);
+
+    return (i);
 }

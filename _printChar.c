@@ -1,11 +1,12 @@
 #include "main.h"
+
 /**
- *_printChar - a function that prints character
+ * _printChar - Write a character to stdout
+ * @c: The character to write
  *
- *@c: input parameter
- *Return: one character in stdout
+ * Return: The number of characters written
  */
 int _printChar(char c)
 {
-	return (write(1, &c, 1));
+    return (write(1, &c, 1));
 }

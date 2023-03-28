@@ -8,5 +8,4 @@ int _printf(const char *format, ...);
 int _printChar(char c);
 int _printStr(char *str);
 void _printInt(int num);
-int _strlen(char *s);
 #endif

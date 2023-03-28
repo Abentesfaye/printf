@@ -1,54 +1,49 @@
 #include "main.h"
 
 /**
- * _printf - custom printf function that handles only %c, %s, and %% specifiers
- * @format: format string to print
- * @...: variable arguments list
+ * _printf - Custom printf function that handles %s, %c, and %% format specifiers
+ * @format: The format string to print
+ * @...: The variable arguments list
  *
- * Return: number of characters printed
+ * Return: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
-    int i = 0, count = 0;
-    char *str;
+    int count = 0, i = 0;
     va_list args;
+    char *str;
+
     va_start(args, format);
+
     if (format == NULL)
-        return -1;
-    while (format[i] != '\0')
+        return (-1);
+
+    while (format[i])
     {
-        if (format[i] == '%' && format[i + 1] != '\0')
+        if (format[i] == '%')
         {
             i++;
-            if (format[i] == 'c')
+            switch (format[i])
             {
-                _printChar(va_arg(args, int));
-                count++;
-            }
-            else if (format[i] == 's')
-            {
-               str = va_arg(args, char *);
-                if (str == NULL)
-                {
-                    _printStr("(null)");
-                    count += 6;
-                }
-                else
-                {
-                    _printStr(str);
-                    count += _strlen(str);
-                }
-            }
-            else if (format[i] == '%')
-            {
-                _printChar('%');
-                count++;
-            }
-            else
-            {
-                _printChar('%');
-                _printChar(format[i]);
-                count += 2;
+                case 'c':
+                    _printChar(va_arg(args, int));
+                    count++;
+                    break;
+                case 's':
+                    str = va_arg(args, char *);
+                    if (str == NULL)
+                        str = "(null)";
+                    count += _printStr(str);
+                    break;
+                case '%':
+                    _printChar('%');
+                    count++;
+                    break;
+                default:
+                    _printChar('%');
+                    _printChar(format[i]);
+                    count += 2;
+                    break;
             }
         }
         else
@@ -58,6 +53,7 @@ int _printf(const char *format, ...)
         }
         i++;
     }
+
     va_end(args);
-    return count;
+    return (count);
 }
