@@ -7,20 +7,18 @@
  *
  * Return: number of characters printed
  */
-int _printf(const char *format, ...) 
-{   
+int _printf(const char *format, ...)
+{
     char c;
     char *str;
     int i = 0;
     int counter = 0;
     va_list args;
     va_start(args, format);
-    
     if (format == NULL)
     {
-        return -1;
+        return (-1);
     }
-    
     while (format[i] != '\0')
     {
         if (format[i] == '%' && format[i+1] == 'c')
@@ -56,9 +54,8 @@ int _printf(const char *format, ...)
             _printChar(format[i]);
             counter++;
             i++;
-        }
+        ss}
     }
     va_end(args);
-    
     return (counter);
 }
