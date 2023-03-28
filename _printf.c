@@ -1,59 +1,60 @@
 #include "main.h"
 
 /**
- * _printf - Custom printf function that handles %s, %c, and %% format specifiers
- * @format: The format string to print
- * @...: The variable arguments list
+ * _printf - custom printf function that handles only %c, %s, and %% specifiers
+ * @format: format string to print
+ * @...: variable arguments list
  *
- * Return: The number of characters printed
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
-    int count = 0, i = 0;
-    va_list args;
+    char c;
     char *str;
-
+    int i = 0;
+    int counter = 0;
+    va_list args;
     va_start(args, format);
-
     if (format == NULL)
-        return (-1);
-
-    while (format[i])
     {
-        if (format[i] == '%')
+        return (-1);
+    }
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%' && format[i+1] == 'c')
         {
-            i++;
-            switch (format[i])
+            c = va_arg(args, int);
+            _printChar(c);
+            counter++;
+            i += 2;
+        }
+        else if (format[i] == '%' && format[i + 1] == 's')
+        {
+            str = va_arg(args, char *);
+            if (str == NULL)
             {
-                case 'c':
-                    _printChar(va_arg(args, int));
-                    count++;
-                    break;
-                case 's':
-                    str = va_arg(args, char *);
-                    if (str == NULL)
-                        str = "(null)";
-                    count += _printStr(str);
-                    break;
-                case '%':
-                    _printChar('%');
-                    count++;
-                    break;
-                default:
-                    _printChar('%');
-                    _printChar(format[i]);
-                    count += 2;
-                    break;
+                _printStr("(null)");
+                counter += 6;
             }
+            else
+            {
+                counter += _printStr(str);
+            }
+            i += 2;
+        }
+        else if (format[i] == '%' && format[i + 1] == '%')
+        {
+            _printChar('%');
+            counter++;
+            i += 2;
         }
         else
         {
             _printChar(format[i]);
-            count++;
+            counter++;
+            i++;
         }
-        i++;
     }
-
     va_end(args);
-    return (count);
+    return (counter);
 }
