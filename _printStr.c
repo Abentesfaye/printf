@@ -8,9 +8,9 @@ int _printStr(char *str)
 {
     int i = 0;
 
-    while (str[i])
+    while (*str[i])
     {
-        _printChar(str[i]);
+        _printChar(*str[i]);
         i++;
     }
 
