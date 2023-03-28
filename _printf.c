@@ -28,6 +28,13 @@ int _printf(const char *format, ...)
              i +=2;
         }
 
+        else if (format[i] == '%' && format[i + 1] == '%')
+        {
+            _printChar('%');
+             counter++;
+             i +=2;
+        }
+
         else{
             _printChar(format[i]);
             counter++;
