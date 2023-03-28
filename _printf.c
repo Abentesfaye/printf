@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
             if (str == NULL)
             {
                 _printStr("(null)");
-                counter += 6;
+                counter += 8;
             }
             else
             {
