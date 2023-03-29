@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-    int i = 0, counter = 0;
+	int i = 0, counter = 0;
 	int (*f)(va_list);
 	va_list args;
 
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 				else
 				{
 					f = get_func(&format[i + 1]);
-					counter += f(args) ;
+					counter += f(args);
 					i++;
 				}
 			}
@@ -49,3 +49,5 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (counter);
 }
+
+
