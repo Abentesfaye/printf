@@ -26,6 +26,4 @@ int print_char(va_list args);
 int print_pct(va_list args);
 int print_dec(va_list args);
 int _printChar(char c);
-char *itoa(long int num, int base)
-int print_binary(va_list args);
 #endif
