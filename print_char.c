@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 /**
  *print_char - prints character
  *@args: argument
@@ -8,7 +9,13 @@
 
 int print_char(va_list args)
 {
+	int count = 0;
+	char c = va_arg(args, int);
 
-	_printChar(va_arg(args, int));
-	return (1);
+	if (c)
+	{
+	count = write(1, &c, 1);
+	return (count);
+	}
+	return (0);
 }
