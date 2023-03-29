@@ -1,43 +1,34 @@
 #include "main.h"
 
 /**
- * _printDecimalToBinary - Converts a decimal number to binary and prints it.
+ * _printBinary - prints the binary representation of a number
+ * @args: the va_list containing the number to print
  *
- * @args: A va_list containing the decimal number to be converted.
- *
- * Return: The length of the binary representation.
+ * Return: the number of digits printed
  */
-int _printDecimalToBinary(va_list args)
+int _printBinary(va_list args)
 {
-    int num = va_arg(args, int);
-    int length = 0;
+	 int num = va_arg(args, unsigned int);
+	int mask = 1;
+	int length = 0;
+	int i;
 
-    if (num == 0) {
-        _printChar('0');
-        length = 1;
-    } else {
-        length = _printBinary(num);
-    }
+	/* count the number of digits in the binary string */
+	for (i = 0; i < 32; i++)
+	{
+		if ((num & mask) == mask)
+			length++;
+		mask <<= 1;
+	}
 
-    return (length);
-}
+	/* print the binary string */
+	for (i = 0; i < length; i++)
+	{
+		if ((num & (1 << (length - i - 1))) == (1 << (length - i - 1)))
+			_printChar('1');
+		else
+			_printChar('0');
+	}
 
-/**
- * _printBinary - Converts a decimal number to binary and prints it.
- *
- * @num: The decimal number to be converted.
- *
- * Return: The length of the binary representation.
- */
-int _printBinary(int num)
-{
-    int length = 0;
-
-    if (num > 1) {
-        length = _printBinary(num >> 1);
-    }
-    _printChar((num & 1) + '0');
-    length++;
-
-    return (length);
+	return (length - 1);
 }

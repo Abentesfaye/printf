@@ -24,7 +24,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] != 'c' && format[i + 1] != 's'
 				&& format[i + 1] != '%' && format[i + 1] != 'd'
-				&& format[i + 1] != 'i' && format[i + 1] != 'b')
+				&& format[i + 1] != 'i' && format[i + 1] != 'b' 
+				&& format[i + 1] != 'p')
 				{
 					counter += _printChar(format[i]);
 					counter += _printChar(format[i + 1]);

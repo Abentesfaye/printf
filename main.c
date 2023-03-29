@@ -1,8 +1,9 @@
 #include "main.h"
-
-int main()
+int main(void)
 {
- _printf("%b", 192);
- return 0;
+     int x = 42;
+    int *p = &x;
+    _printf("The value of x is %p\n", p);
+
+    return 0;
 }
-   
