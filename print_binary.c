@@ -1,27 +1,18 @@
 #include "main.h"
-
 /**
- * _printBinary - prints the binary representation of a number
- * @args: the va_list containing the number to print
+ * print_binary - Print a number in base 2
+ * @list: Number to print in base 2
  *
- * Return: the number of digits printed
- */
-int _printBinary(va_list args)
+ * Return: Length of the numbers in binary
+ **/
+int print_binary(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
-	int binary[32];
-	int i, len = 0;
+	char *p_buff;
+	int size;
 
+	p_buff = itoa(va_arg(args, unsigned int), 2);
 
-	for (i = 0; n > 0; i++)
-	{
-		binary[i] = n % 2;
-		n /= 2;
-	}
-	for (i = i - 1; i >= 0; i--)
-	{
-		_printChar(binary[i] + '0');
-		len++;
-	}
-	return (len);
+	size = _printf(p_buff);
+
+	return (size);
 }
