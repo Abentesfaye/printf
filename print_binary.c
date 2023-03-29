@@ -8,27 +8,21 @@
  */
 int _printBinary(va_list args)
 {
-	 int num = va_arg(args, int);
-	int mask = 1;
-	int length = 0;
-	int i;
+	 unsigned int n = va_arg(args, unsigned int);
+    int binary[32];
+    int i, len = 0;
 
-	/* count the number of digits in the binary string */
-	for (i = 0; i < 32; i++)
-	{
-		if ((num & mask) == mask)
-			length++;
-		mask <<= 1;
-	}
+    for (i = 0; n > 0; i++)
+    {
+        binary[i] = n % 2;
+        n /= 2;
+    }
 
-	/* print the binary string */
-	for (i = 0; i < length; i++)
-	{
-		if ((num & (1 << (length - i - 1))) == (1 << (length - i - 1)))
-			_printChar('1');
-		else
-			_printChar('0');
-	}
+    for (i = i - 1; i >= 0; i--)
+    {
+        _printChar(binary[i] + '0');
+        len++;
+    }
 
-	return (length - 1);
+    return (len);
 }
