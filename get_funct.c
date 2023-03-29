@@ -14,7 +14,6 @@ int (*get_func(const char *format))(va_list)
 		{"d", print_dec},
 		{"i", print_dec},
 		{"b", _printBinary},
-		{"p", print_pointer},
 		{NULL, NULL}
 	};
 

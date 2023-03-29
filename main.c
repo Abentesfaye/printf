@@ -8,5 +8,6 @@ int main(void)
     len = _printf("Pointer address: %p\n", p);
     _printf("Length: %d\n", len);
      printf("Length: %d\n", len);
+     _printf("%b",192);
     return 0;
 }
