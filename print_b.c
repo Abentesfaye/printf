@@ -23,7 +23,7 @@ int print_b(va_list args)
 	/* Print binary number */
 	for (int i = bit_pos - 1; i >= 0; i--)
 	{
-		_putchar((binary_num >> i) & 1 ? '1' : '0');
+		_printChar((binary_num >> i) & 1 ? '1' : '0');
 		count++;
 	}
 
