@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
 	int (*function)(va_list) = NULL;
 
 	va_start(args, format);
-
+	if (format == NULL || !format[i + 1])
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1) != '%')
