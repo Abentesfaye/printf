@@ -25,6 +25,7 @@ int (*get_function(const char *specifier))(va_list)
 		{"R", rot13},
 		{"r", print_rev},
 		{"F", print_F},
+		{"%", print_prsnt},
 		{NULL, NULL}
 	};
 
