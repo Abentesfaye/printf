@@ -12,8 +12,8 @@
  */
 typedef struct func_type
 {
-  char *t;
-  int (*f)(va_list);
+char *t;
+int (*f)(va_list);
 } func_t;
 /*function prototype */
 int _printf(const char *format, ...);
