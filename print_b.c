@@ -15,7 +15,7 @@ int print_b(va_list args)
 
 	if (decimalNumber < 1)
 	{
-		_putchar(0 + '0');
+		_printChar(0 + '0');
 		return (1);
 	}
 
@@ -31,7 +31,7 @@ int print_b(va_list args)
 	}
 	for (i = 0; i < count; i++)
 	{
-		retval = _putchar(string[i] + '0');
+		retval = _printChar(string[i] + '0');
 
 		if (retval == -1)
 		{
