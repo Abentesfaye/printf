@@ -29,10 +29,13 @@ int print_s(va_list args)
 }
 
 /**
- * print_prsnt - prints a percent sign
- * @args: unused argument
+ *print_pct - prints character "%"
+ *@args : arguments
+ *
+ *Return: character "%"
  */
-void print_prsnt(__attribute__((unused)) va_list args)
+int print_pct(va_list args)
 {
-    _putchar('%');
+	(void)args;
+	return (write(1, "%", 1));
 }

@@ -37,6 +37,5 @@ int print_s(va_list args);
 int print_c(va_list args);
 int print_u(va_list args);
 int print_F(va_list args);
-void print_prsnt(__attribute__((unused)) va_list args);
-
-#endif 
+int print_pct(va_list args);
+#endif
