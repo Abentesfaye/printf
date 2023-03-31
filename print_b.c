@@ -8,38 +8,24 @@
   */
 int print_b(va_list args)
 {
+	unsigned int n = va_arg(args, unsigned int);
+	unsigned int binary_num = 0, bit_pos = 0;
 	int count = 0;
-	unsigned int decimalNumber = va_arg(args, unsigned int);
-	int i = 1, retval;
-	char *string;
 
-	if (decimalNumber < 1)
+	/* Convert decimal number to binary */
+	while (n > 0)
 	{
-		_printChar(0 + '0');
-		return (1);
+		binary_num |= ((n & 1) << bit_pos);
+		n >>= 1;
+		bit_pos++;
 	}
 
-	count += countBinary(decimalNumber);
-	string = malloc(sizeof(char) * (count + 1));
-
-	if (string == NULL)
-		return (-1);
-	for (i = 1; i < count + 1; i++)
+	/* Print binary number */
+	for (int i = bit_pos - 1; i >= 0; i--)
 	{
-		string[count - i] = decimalNumber % 2;
-		decimalNumber = decimalNumber / 2;
-	}
-	for (i = 0; i < count; i++)
-	{
-		retval = _printChar(string[i] + '0');
-
-		if (retval == -1)
-		{
-			free(string);
-			return (-1);
-		}
+		_putchar((binary_num >> i) & 1 ? '1' : '0');
+		count++;
 	}
 
-	free(string);
 	return (count);
 }
