@@ -9,9 +9,6 @@
 
 int print_s(va_list args)
 {
-	cint print_str(va_list args)
-{
-
 	int j;
 	char *str = va_arg(args, char *);
 
@@ -19,7 +16,7 @@ int print_s(va_list args)
 		str = "(null)";
 	for (j = 0; str[j]; j++)
 	{
-		_putchar(str[j]);
+		_printChar(str[j]);
 	}
 	return (j);
 }
@@ -33,5 +30,4 @@ int print_pct(va_list args)
 {
 	(void)args;
 	return (write(1, "%", 1));
-}
 }
