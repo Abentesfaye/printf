@@ -5,7 +5,10 @@
  * @base: base
  *
  * Return: char
+<<<<<<< HEAD
  * 
+=======
+>>>>>>> b618c5baf339579cad285df3c487d12fda3efb98
  */
 char *itoa(long int num, int base)
 {

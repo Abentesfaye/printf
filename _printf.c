@@ -9,19 +9,33 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, counter = 0;
-	int (*f)(va_list);
+	int i = 0;
+	int count = 0;
+	int value = 0;
 	va_list args;
 
 	va_start(args, format);
-	if (format == NULL || !format[i + 1])
+	int (*f)(va_list);
+	/*prvent parsing a null pointer*/
+
+	if (format == NULL)
 		return (-1);
+	/*print each character of string*/
 	while (format[i])
 	{
+		if (format[i] != '%')
+		{
+		value = write(1, &format[i], 1);
+		count += value;
+		i++;
+		continue;
+		}
 		if (format[i] == '%')
 		{
-			if (format[i + 1])
+			f = get_func(&format[i + 1]);
+			if (f != NULL)
 			{
+<<<<<<< HEAD
 				if (format[i + 1] != 'c' && format[i + 1] != 's'
 				&& format[i + 1] != '%' && format[i + 1] != 'd'
 				&& format[i + 1] != 'i' && format[i + 1] != 'b'
@@ -37,17 +51,25 @@ int _printf(const char *format, ...)
 					counter += f(args);
 					i++;
 				}
+=======
+			value = f(args);
+			count += value;
+			i = i + 2;
+			continue;
+			}
+			if (format[i + 1] == '%')
+			{
+				break;
+			}
+			if (format[i + 1] != '\0')
+			{
+				value = write(1, &format[i], 1);
+				count += value;
+				i = i + 2;
+				continue;
+>>>>>>> b618c5baf339579cad285df3c487d12fda3efb98
 			}
 		}
-		else
-		{
-			_printChar(format[i]);
-			counter++;
-		}
-		i++;
 	}
-	va_end(args);
-	return (counter);
+	return (count);
 }
-
-
