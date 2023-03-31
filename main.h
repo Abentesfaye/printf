@@ -12,12 +12,12 @@
  */
 typedef struct func_type
 {
-        char *t;
-        int (*f)(va_list);
+    char *t;
+    int (*f)(va_list);
 } func_t;
 /*function prototype */
 int _printf(const char *format, ...);
-int (*get_func(const char*))(va_list);
+int (*get_func(const char *))(va_list);
 int _printChar(char c);
 int _strlen(char *);
 int print_rev(va_list args);
