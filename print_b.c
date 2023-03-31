@@ -11,7 +11,7 @@ int print_b(va_list args)
 	unsigned int n = va_arg(args, unsigned int);
 	unsigned int binary_num = 0, bit_pos = 0;
 	int count = 0;
-
+	int i;
 	/* Convert decimal number to binary */
 	while (n > 0)
 	{
@@ -21,7 +21,7 @@ int print_b(va_list args)
 	}
 
 	/* Print binary number */
-	for (int i = bit_pos - 1; i >= 0; i--)
+	for (i = bit_pos - 1; i >= 0; i--)
 	{
 		_printChar((binary_num >> i) & 1 ? '1' : '0');
 		count++;
