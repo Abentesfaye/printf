@@ -8,7 +8,7 @@ int (*get_func(const char *format))(va_list)
 {
 	int i;
 	func_t p[] = {
-			{"s", print_s},
+		{"s", print_s},
 		{"c", print_c},
 		{"d", print_d},
 		{"i", print_d},
@@ -21,6 +21,7 @@ int (*get_func(const char *format))(va_list)
 		{"R", rot13},
 		{"r", print_rev},
 		{"F", print_F},
+		{"%", print_pct},
 		{NULL, NULL}
 	};
 
