@@ -16,7 +16,7 @@ int print_d(va_list args)
 
 	if (num < 0)
 	{
-		retval = _printChar('-');
+		retval = _putchar('-');
 		if (retval == -1)
 		{
 			return (-1);
@@ -27,7 +27,7 @@ int print_d(va_list args)
 	}
 	else if (num == 0)
 	{
-		retval = _printChar('0');
+		retval = _putchar('0');
 		if (retval == 1)
 			return (1);
 		else

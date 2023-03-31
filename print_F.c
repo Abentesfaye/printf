@@ -14,7 +14,7 @@ int print_F(__attribute__ ((unused))va_list args)
 
 	for (i = 0; i < 4; i++)
 	{
-		retVal = _printChar(F[i]);
+		retVal = _putchar(F[i]);
 	if (retVal == -1)
 		return (retVal);
 	}

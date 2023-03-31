@@ -20,7 +20,7 @@ int print_rev(va_list args)
 
 	while (length >= 0)
 	{
-		_printChar(*(string + length));
+		_putchar(*(string + length));
 		length--;
 		count++;
 	}

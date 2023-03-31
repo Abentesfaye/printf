@@ -1,24 +1,23 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdlib.h>
-
 /**
- * struct func_type - type structure
- * @t: pointer to the argument
- * @f: pointer-function associated with the argument
+ * struct type - connect conversion specifiers with the correct print function
+ * @print: a function pointer for the print functions
+ * @identifier: the conversion specifier
  */
-typedef struct func_type
+typedef struct type
 {
-char *t;
-int (*f)(va_list);
-} func_t;
-/*function prototype */
-int _printf(const char *format, ...);
-int (*get_func(const char *))(va_list);
-int _printChar(char c);
+char *identifier;
+int (*print)(va_list);
+} type_t;
+
+int _putchar(char c);
+int (*get_function(const char *specifier))(va_list);
+int _printf(const char *, ...);
 int _strlen(char *);
 int print_rev(va_list args);
 int rot13(va_list args);
@@ -38,5 +37,5 @@ int print_s(va_list args);
 int print_c(va_list args);
 int print_u(va_list args);
 int print_F(va_list args);
-int print_pct(va_list args);
-#endif
+
+#endif 

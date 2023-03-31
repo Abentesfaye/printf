@@ -14,7 +14,7 @@ int print_u(va_list args)
 
 	if (num < 1)
 	{
-		_printChar('0');
+		_putchar('0');
 		return (1);
 	}
 	retval = print_number(num);

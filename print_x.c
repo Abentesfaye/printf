@@ -22,11 +22,11 @@ void print_lowerHex(unsigned int num, int *count)
 
 	/* if num vs 0xf < 0xa, print 0-9 */
 	if ((num & 15) < 10)
-		retVal = _printChar('0' + (num & 15));
+		retVal = _putchar('0' + (num & 15));
 
 	/* if num vs 0xf > 0xa, print a-f */
 	else
-		retVal = _printChar('a' + (num & 15) % 10);
+		retVal = _putchar('a' + (num & 15) % 10);
 
 	/* if putchar fails, returns -1 */
 	if (retVal == -1)

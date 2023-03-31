@@ -36,7 +36,7 @@ int rot13(va_list args)
 	}
 
 	for (count = 0; encoded[count]; count++)
-		_printChar(encoded[count]);
+		_putchar(encoded[count]);
 
 	free(encoded);
 

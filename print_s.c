@@ -9,25 +9,21 @@
 
 int print_s(va_list args)
 {
-	int j;
 	char *str = va_arg(args, char *);
+	int count = 0;
+	int retVal;
 
-	if (str == NULL)
+	if (!str)
 		str = "(null)";
-	for (j = 0; str[j]; j++)
+
+	while (*str)
 	{
-		_printChar(str[j]);
+		retVal = _putchar(*str);
+		if (retVal == -1)
+			return (-1);
+		count++;
+		str++;
 	}
-	return (j);
-}
-/**
- *print_pct - prints character "%"
- *@args : arguments
- *
- *Return: character "%"
- */
-int print_pct(va_list args)
-{
-	(void)args;
-	return (write(1, "%", 1));
+
+	return (count);
 }

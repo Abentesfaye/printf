@@ -27,7 +27,7 @@ int print_o(va_list args)
 	}
 	for (i = 0; i < count; i++)
 	{
-		retval = _printChar(string[i]);
+		retval = _putchar(string[i]);
 
 		if (retval == -1)
 		{

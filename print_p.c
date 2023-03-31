@@ -22,9 +22,9 @@ void print_pointer(unsigned long ptr, int *count)
 		return;
 
 	if ((ptr & 15) < 10)
-		retVal = _printChar('0' + (ptr & 15));
+		retVal = _putchar('0' + (ptr & 15));
 	else
-		retVal = _printChar('a' + (ptr & 15) % 10);
+		retVal = _putchar('a' + (ptr & 15) % 10);
 
 	if (retVal == -1)
 		*count = -1;
