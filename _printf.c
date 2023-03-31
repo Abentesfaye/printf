@@ -27,9 +27,9 @@ int _printf(const char *format, ...)
 				&& format[i + 1] != 'i' && format[i + 1] != 'b'
 				&& format[i + 1] != 'p')
 				{
-					counter += _printChar(format[i]);
-					counter += _printChar(format[i + 1]);
-					i++;
+					counter += _printChar(format[i]); /* % */
+					counter += _printChar(format[i + 1]); /* d*/
+					i++;  /* d */
 				}
 				else
 				{

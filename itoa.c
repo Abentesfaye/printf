@@ -5,8 +5,8 @@
  * @base: base
  *
  * Return: char
- * https://gist.github.com/narnat/95733cd0ad7bfac0d90697292914c407
- **/
+ * 
+ */
 char *itoa(long int num, int base)
 {
 	static char *array = "0123456789abcdef";

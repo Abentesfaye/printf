@@ -1,12 +1,11 @@
 #include "main.h"
-
 /**
- * _printBinary - prints the binary representation of a number
- * @args: the va_list containing the number to print
+ * print_binary - Print a number in base 2
+ * @list: Number to print in base 2
  *
- * Return: the number of digits printed
- */
-int _printBinary(va_list args)
+ * Return: Length of the numbers in binary
+ **/
+int print_binary(va_list args)
 {
 	char *p_buff;
 	int size;
@@ -15,5 +14,5 @@ int _printBinary(va_list args)
 
 	size = _printf(p_buff);
 
-	return (size);
+	return (size - 1);
 }
